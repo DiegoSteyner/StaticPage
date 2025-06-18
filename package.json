@@ -7,7 +7,7 @@
     "startlocal": "ng serve --configuration local",
     "startprod": "ng serve --configuration production",
     "startdev": "ng serve --configuration development",
-    "build": "ng build",
+    "build": "ng build --base-href /baseprojectfront/browser/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
