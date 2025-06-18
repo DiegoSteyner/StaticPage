@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ------------------------------------------ */
+/* VARIÁVEIS */
+/* ------------------------------------------ */
+
+:root {
+    --app-font-name: unset;
+    --app-font-name: "Poppins", serif;
+    --app-font-name: "Raleway", serif;
+    --app-font-name: "Work Sans", serif;
+    --app-font-name: "Montserrat", serif;
+    --app-font-name: "Nunito Sans", serif;
+    
+    --app-font-weight: 100;
+    --app-font-weight: unset;
+
+    --app-font-optical-sizing: auto;
+    --app-font-style: normal;
+}
+
+/* ------------------------------------------ */
+/* COMPONENTES HTML RAIZ */
+/* ------------------------------------------ */
+
+label {
+    display: inline-block;
+    font-family: var(--app-font-name) !important;
+    font-optical-sizing: var(--app-font-optical) !important;
+    font-weight: var(--app-font-weight) !important;
+    font-style: var(--app-font-style) !important;
+}
+
+h3{
+    font-family: var(--app-font-name) !important;
+    font-optical-sizing: var(--app-font-optical) !important;
+    font-weight: var(--app-font-weight) !important;
+    font-style: var(--app-font-style) !important;
+}
+
+p {
+    color: black;
+    font-family: var(--app-font-name);
+    font-optical-sizing: var(--app-font-optical);
+    font-weight: var(--app-font-weight);
+    font-style: var(--app-font-style);
+}
+
+::placeholder {
+    color: gray !important;
+    font-size: medium;
+    opacity: 1;
+    font-family: var(--app-font-name);
+    font-optical-sizing: var(--app-font-optical);
+    font-weight: var(--app-font-weight);
+    font-style: var(--app-font-style);
+}
+
+::-ms-input-placeholder {
+    color: gray !important;
+    font-size: medium;
+    opacity: 1;
+    font-family: var(--app-font-name);
+    font-optical-sizing: var(--app-font-optical);
+    font-weight: var(--app-font-weight);
+    font-style: var(--app-font-style);
+}
+
+/* ------------------------------------------ */
+/* COMPONENTES PRIMENG */
+/* ------------------------------------------ */
+
+.p-button-label
+{
+    font-family: var(--app-font-name);
+    font-optical-sizing: var(--app-font-optical);
+    font-weight: var(--app-font-weight);
+    font-style: var(--app-font-style);
+}

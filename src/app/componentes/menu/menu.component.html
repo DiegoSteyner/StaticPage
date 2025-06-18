@@ -1,0 +1,179 @@
+<nav *ngIf="tipoMenu == 'barra-menu-1'" class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+        <div class="flex align-items-center justify-content-center">
+            <a class="navbar-brand" href="#">
+                <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="ms-4 mt-1 d-inline-block align-text-top">
+                Bootstrap
+            </a>
+            <div *ngFor="let menu of menuItens" >
+                <div *ngIf="menu.submenus && menu.submenus.length > 0" class="dropdown d-flex align-items-center justify-content-center pe-4">
+                    <a class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle cursor-hand " [id]="'dropdownMenu'+menu.indexMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i [ngClass]="'pe-2 ' + (menu.icone)"></i>
+                        <label class="cursor-hand app-label ">{{menu.nome}}</label>
+                    </a>
+                    <ul class="dropdown-menu text-small shadow" aria-expanded="false">
+                        <li *ngFor="let i of menu.submenus">
+                            <a *ngIf="i.ativo && !i.separador" (click)="navigate(i)" class="d-flex align-items-center link-dark text-decoration-none cursor-hand dropdown-item">
+                                <i *ngIf="i.icone" [ngClass]="'pe-2 ' + (i.icone)"></i>
+                                <label class="cursor-hand app-label ">{{i.nome}}</label>
+                            </a>
+                            <hr *ngIf="i.ativo && i.separador" class="dropdown-divider">
+                        </li>
+                    </ul>
+                </div>
+                <div *ngIf="(!menu.submenus || menu.submenus.length == 0) && menu.ativo">
+                    <a (click)="navigate(menu)" class="d-flex align-items-center link-dark text-decoration-none cursor-hand dropdown-item">
+                        <i [ngClass]="'pe-2 ' + (menu.icone)"></i>
+                        <label class="cursor-hand app-label ">{{menu.nome}}</label>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div *ngIf="menuUsuario" class="dropdown dropstart d-flex align-items-center justify-content-center">
+            <a class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle cursor-hand" data-bs-toggle="dropdown">
+                <strong class="pe-3">{{menuUsuario.nome}}</strong>
+                <img [src]="menuUsuario.imagem" alt="" width="32" height="32" class="rounded-circle me-2">
+            </a>
+            <ul *ngIf="menuUsuario.menus && menuUsuario.menus.length > 0" class="dropdown-menu text-small shadow">
+                <li *ngFor="let i of menuUsuario.menus">
+                    <a *ngIf="i.ativo && !i.separador" (click)="navigate(i)" class="d-flex align-items-center link-dark text-decoration-none cursor-hand dropdown-item">
+                        <i *ngIf="i.icone" [ngClass]="'pe-2 ' + (i.icone)"></i>
+                        <label class="cursor-hand app-label ">{{i.nome}}</label>
+                    </a>
+                    <hr *ngIf="i.ativo && i.separador" class="dropdown-divider">
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- 
+
+<div *ngIf="false" class="d-flex flex-column flex-shrink-0 p-3 bg-light" [style]="{height: getDocumentHeight()}">
+    <div class="d-flex align-items-center justify-content-center">
+        <a class="d-flex align-items-center justify-content-center pb-3 mb-md-0 me-md-auto link-dark text-decoration-none w-100">
+            <span class="fs-4">Base project</span>
+        </a>
+    </div>
+    <div class="dropdown d-flex align-items-center justify-content-center">
+        <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>Nome do Usuário</strong>
+        </a>
+        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+        </ul>
+    </div>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li *ngFor="let r of menuItens; let index=index; trackBy: trackByNavegacao" class="nav-item">
+            <a [ngClass]="'nav-link my-2 cursor-hand ' + (r.ativo ? 'active link-light ' : 'link-dark')" (click)="navigate(r)" aria-current="page">
+                <i [ngClass]="r.icone"></i>
+                {{r.nome}}
+            </a>
+        </li>
+    </ul>
+</div> 
+
+-->
+
+
+<!-- 
+<div *ngIf="false" class="offcanvas offcanvas-start bg-body-tertiary border-none border-end show " style="width: 18.5rem;" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="false">
+    <div *ngIf="false" class="offcanvas-header">
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body px-0">
+        <div class="d-flex align-items-center justify-content-center">
+            <a class="d-flex align-items-center justify-content-center pb-3 mb-md-0 me-md-auto link-dark text-decoration-none w-100">
+                <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                <span class="fs-4 ps-2">Base project</span>
+            </a>
+        </div>
+        <div class="dropdown d-flex align-items-center justify-content-center">
+            <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                <strong>Nome do Usuário</strong>
+            </a>
+            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                <li><a class="dropdown-item" href="#">New project...</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+        </div>
+        <hr class="mx-4">
+        <ul class="nav nav-pills flex-column mb-auto">
+            <div >
+                <li *ngFor="let r of navegacao; let index=index; trackBy: trackByNavegacao" class="nav-item">
+                    <a [ngClass]="'nav-link my-2 cursor-hand ' + (r.ativo ? 'active link-light ' : 'link-dark')" (click)="navigate(r)" aria-current="page">
+                        <i [ngClass]="r.icone"></i>
+                        {{r.nome}}
+                    </a>
+                </li>
+            </div>
+        </ul>
+    </div>
+</div>
+
+<nav *ngIf="false" class="navbar bg-body-tertiary fixed-top border-bottom">
+    <div class="container-fluid" style="display: flex;flex-direction: row-reverse;">
+        <a class="navbar-brand" href="#">
+            <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            Bootstrap
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-start bg-body-tertiary border-none border-end show" style="width: 18.5rem;margin-top: 3.5rem;" tabindex="-1" id="offcanvasNavbar" data-bs-keyboard="false" data-bs-backdrop="false">
+            <div *ngIf="false" class="offcanvas-header">
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body px-0">
+                <div class="d-flex align-items-center justify-content-center">
+                    <a class="d-flex align-items-center justify-content-center pb-3 mb-md-0 me-md-auto link-dark text-decoration-none w-100">
+                        <span class="fs-4">Base project</span>
+                    </a>
+                </div>
+                <div class="dropdown d-flex align-items-center justify-content-center">
+                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                        <strong>Nome do Usuário</strong>
+                    </a>
+                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                        <li><a class="dropdown-item" href="#">New project...</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
+                </div>
+                <hr class="mx-4">
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <div >
+                        <li *ngFor="let r of navegacao; let index=index; trackBy: trackByNavegacao" class="nav-item">
+                            <a [ngClass]="'nav-link my-2 cursor-hand ' + (r.ativo ? 'active link-light ' : 'link-dark')" (click)="navigate(r)" aria-current="page">
+                                <i [ngClass]="r.icone"></i>
+                                {{r.nome}}
+                            </a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav> 
+-->

@@ -1,0 +1,34 @@
+/* --c: #BD1550; */
+
+  /* HTML: <div class="ribbon">Your text content</div> */
+.ribbon {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+  }
+  .ribbon {
+    --r: .8em; /* control the ribbon shape */
+    
+    padding-inline: calc(var(--r) + .3em);
+    line-height: 1.8;
+    clip-path: polygon(0 0,100% 0,calc(100% - var(--r)) 50%,100% 100%,0 100%, var(--r) 50%);
+    background: #CC333F; /* the main color */
+    width: fit-content;
+  }
+
+  /* HTML: <div class="rounded-tab"></div> */
+/* HTML: <div class="rounded-tab"></div> */
+.rounded-tab {
+    --r: 21px; /* control the radius */
+  
+    line-height: 1.8; /* control the height */
+    padding-inline: .5em;
+    border-right: var(--r) solid #0000;
+    border-radius: var(--r) calc(2*var(--r)) 0 0/var(--r);
+    mask:  
+      radial-gradient(var(--r) at 100% 0,#0000 98%,#000 101%) 
+       100% 100%/var(--r) var(--r) no-repeat, 
+      conic-gradient(#000 0 0) padding-box;
+    background: #CC333F border-box; /* border-box is needed for a gradient coloration */
+    width: fit-content;
+  }

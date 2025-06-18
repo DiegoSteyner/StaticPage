@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-12" style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+        <p-button label="Voltar" routerLink="/primeiro" size="small" [severity]="'primary'" icon="pi pi-arrow-left" iconPos="left" [style]="{'position': 'absolute', 'marginTop':'-.1rem', 'marginLeft':'-25rem', 'height': '2rem', 'backgroundColor': '#106ebe'}"/>
+        <h5>VIDEONISTAGMOGRAFIA/VIDEO-OCULOGRAFIA</h5>
+        <hr style="width: 50rem;padding-top: 0;margin-top: 0;">
+    </div>
+    <div class="col-12" style="display: flex;flex-direction: row;justify-content: center;">
+        <ul>
+            <li>Pesquisa do nistagmo espontâneo e semi-espontâneo</li>
+            <li>Provas oculomotoras com movimentos sacádicos, rastreio pendular e pesquisa do nistagmo optocinético</li>
+            <li>Pesquisa de nistagmo posicionamento, posicional e de torção cervical</li>
+            <li>Testes vestibulares com Prova calórica</li>
+        </ul>
+    </div>
+    <div class="col-3">
+
+    </div>
+    <div class="col-9 mb-3" style="display: flex;justify-content: start;flex-direction: column;padding-left: 5rem;">
+        <label><strong>Examinador:</strong> Richard Roe Silva Bastas</label>
+        <div style="display: flex; flex-direction: column; padding-left: 1rem;">
+            <small class="text-muted">Fonoaudiólogo - CRFa.0-12345</small>
+            <small class="text-muted">Mestre pela Santa Casa de São Paulo</small>
+            <small class="text-muted">Especialista em Audiologia pelo Conselho Federal de Fonoaudiologia</small>
+            <small class="text-muted">Atuação clínica em avaliação e reabilitação vestibular</small>
+        </div>
+    </div>
+    <div class="col-12" style="display: flex;justify-content: center;">
+        <p-accordion value="0" [style]="{'width':'45rem'}">
+            <p-accordion-panel value="0">
+                <p-accordion-header [style]="{'backgroundColor': 'lightgray'}">
+                    <ng-template #toggleicon let-active="active">
+                        @if (active) {
+                            <i class="pi pi-minus"></i>
+                        } @else {
+                            <i class="pi pi-plus"></i>
+                        }
+                    </ng-template>
+                    <span class="flex items-center gap-2 w-full">
+                        <!-- <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" /> -->
+                        <!-- <p-avatar [icon]="'bi bi-file-earmark-easel'" [style]="{'fontSize':'15px'}" shape="circle" /> -->
+                        <i class="bi bi-file-earmark-text"></i>
+                        <span class="font-bold whitespace-nowrap">Arquivos</span>
+                        <p-badge value="3" class="ml-auto mr-2" [style]="{'backgroundColor':'black'}"/>
+                    </span>
+                </p-accordion-header>
+                <p-accordion-content [className]="'aborder'">
+                    <ul style="list-style: decimal-leading-zero;">
+                        <li><a href="#">2024-08-24 03-14-19-794 Calibration.mp4</a></li>
+                        <li><a href="#">2024-08-24 03-14-49-598 Nistagmo Espontâneo.m24</a></li>
+                        <li><a href="#">2024-08-24 03-14-49-598 Nistagmo Espontâneo.mp4</a></li>
+                        <li><a href="#">2024-08-24 03-16-02-592 Semi-espontâneo (Fixação) - Esquerdo 220.mp4</a></li>
+                        <li><a href="#">2024-08-24 03-16-21-736 Semi-espontâneo (Fixação) - Direito 220.mp4</a></li>
+                        <li><a href="#">2024-08-24 03-16-43-267 Semi-espontâneo (Fixação) - Para Cima 140.mp4</a></li>
+                        <li><a href="#">2024-08-24 03-17-05-164 Semi-espontâneo (Fixação) - Para Baixo 140.mp4</a></li>
+                        <li><a href="#">2024-08-24 03-17-26-333 Semi-espontâneo (Fixação) - Centralizar.mp4</a></li>
+                        <li><a href="#">2024-08-24 03-18-06-993 Sacadas Aleatórias - Horizontal.mp4</a></li>
+                    </ul>
+                </p-accordion-content>
+            </p-accordion-panel>
+        </p-accordion>
+    </div>
+    <div class="col-12" style="display: flex;flex-direction: row;justify-content: center;align-items: center;">
+        <pdf-viewer [src]="'https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf'" [render-text]="true" [original-size]="true" style="width: 100%; height: 100vh"></pdf-viewer>
+        <!-- <pdf-viewer src="../../1745938911223-traçado.pdf" [render-text]="true" [original-size]="true" style="width: 66%; height: 100vh"></pdf-viewer> -->
+    </div>
+</div>
