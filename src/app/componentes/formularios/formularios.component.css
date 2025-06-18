@@ -1,0 +1,5 @@
+.p-paginator-page.p-paginator-page-selected
+{
+    background-color: #EEEEEE !important;
+    color: black !important;
+}

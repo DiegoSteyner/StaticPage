@@ -1,0 +1,16 @@
+.barra-minimizada {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    margin-left: -32px;
+    margin-top: -17px;
+    z-index: 99999999;
+}
+.barra-maximada {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    margin-left: -15px;
+    margin-top: -15px;
+    z-index: 99999999;
+}

@@ -1,0 +1,91 @@
+
+<div class="container-fluid mx-51" style="width: 95%;margin-top: -2rem;">
+  <!-- <div class="container-fluid mx-5" style="width: 95%;margin-top: 1rem;"> -->
+    <div class="card1 shadow-51 border-none ">
+      <div class="card-body1">
+        <div class="row ">
+          <div class="col-12">
+            <h4>
+            <!-- <h4 style="background: #cfe2ff;height: 35px;border-radius: 1rem;padding-left: 15px;padding-top: 2px;margin-bottom: 2rem;display: flex;justify-content: space-between;"> -->
+            <!-- <h4 style="background: #cfe2ff;height: 35px;border-radius: 1rem;padding-left: 15px;padding-top: 2px;margin-bottom: 2rem;display: flex;justify-content: space-between;margin-top: -41px;"> -->
+              <div>
+                <i class="bi bi-funnel pe-1 color-white1"></i>
+                Filtrar Perguntas
+              </div>
+              <!-- <i class="bi bi-dash pe-1 color-white1" style="font-size: 1.7rem;margin-bottom: 1rem;"></i> -->
+            </h4>
+            <hr style="margin-top: 0; margin-bottom: 3rem;">
+            <div class="row justify-content-md-center">
+              <div class="col-3">
+                <label class="input-label mb-1 w-100">Nome do Pergunta</label>
+                <input type="text" class="form-control form-control" placeholder="Nome" />
+              </div>
+              <div class="col-3">
+                <label class="input-label mb-1 w-100">Ativo</label>
+                <p-select [options]="[{ name: 'Sim', code: 'S' }, { name: 'Não', code: 'N' }]" optionLabel="name" placeholder="Ativo" class="w-full md:w-56" [style]="{'height':'39px'}" />
+              </div>
+              <div class="col-3">
+                <label class="input-label mb-1 w-100">Obrigatório</label>
+                <p-select [options]="[{ name: 'Sim', code: 'S' }, { name: 'Não', code: 'N' }]" optionLabel="name" placeholder="Obrigatória" class="w-full md:w-56" [style]="{'height':'39px'}" />
+              </div>
+              <div class="col-3">
+                <label class="input-label mb-1 w-100">Data de criação</label>
+                <p-datepicker [iconDisplay]="'input'" [showIcon]="true" inputId="icondisplay" [style]="{'height': '39px'}"/>
+              </div>
+              <div class="col-12">
+                <div class="w-100 flex justify-content-end pt-4">
+                    <p-button label="Pesquisar" icon="pi pi-search" [severity]="'primary'"  [style]="{'height': '39px'}"/>
+                    <div class="px-2"></div>
+                    <p-button label="Limpar" icon="pi pi-times-circle" [severity]="'warn'" [style]="{'height': '39px'}"/>
+                    <div class="px-2"></div>
+                    <p-button label="Novo" icon="pi pi-plus" [severity]="'success'" [style]="{'height': '39px'}"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="col-12">
+            <p-table 
+              [paginator]="true"
+              [rows]="3"
+              [tableStyle]="{ 'min-width': '50rem' }"
+              [rowsPerPageOptions]="[3, 10, 20]"  
+              [value]="[{'code': 'Form1', 'name': 'Sim', 'category': 10, 'quantity': 20, 'ativo': true}, 
+                        {'code': 'Form2', 'name': 'Não', 'category': 10, 'quantity': 20, 'ativo': false}, 
+                        {'code': 'Form3', 'name': 'Sim', 'category': 5, 'quantity': 3, 'ativo': false},
+                        {'code': 'Form4', 'name': 'Sim', 'category': 5, 'quantity': 3, 'ativo': false},
+                        {'code': 'Form5', 'name': 'Sim', 'category': 5, 'quantity': 3, 'ativo': false}]" 
+              stripedRows 
+              [tableStyle]="{'min-width': '50rem'}">
+              <ng-template #header>
+                  <tr>
+                      <th style="background-color: #EEEEEE; border-top-left-radius:  5px;">Nome</th>
+                      <th style="background-color: #EEEEEE;">Ativo</th>
+                      <th style="background-color: #EEEEEE;">Quantidade Respondido</th>
+                      <th style="background-color: #EEEEEE;">Quantidade Perguntas</th>
+                      <th style="background-color: #EEEEEE; border-top-right-radius:  5px;">Ações</th>
+                  </tr>
+              </ng-template>
+              <ng-template #body let-product>
+                  <tr>
+                      <td>{{product.code}}</td>
+                      <td>{{product.name}}</td>
+                      <td>{{product.category}}</td>
+                      <td>{{product.quantity}}</td>
+                      <td>
+                        <div class="flex">
+                          <i class="bi bi-pencil-square pe-2 cursor-hand "></i>
+                          <i class="bi bi-trash pe-2 cursor-hand"></i>
+                          <div style="padding-top: 2px;">
+                            <p-toggleswitch [(ngModel)]="product.ativo" [style]="{'height': '20px', }"/>
+                          </div>
+                        </div>
+                      </td>
+                  </tr>
+              </ng-template>
+          </p-table>
+          </div>
+        </div>
+        
+      </div>
+    </div>
