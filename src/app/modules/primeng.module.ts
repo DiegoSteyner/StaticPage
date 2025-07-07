@@ -26,6 +26,7 @@ import { InplaceModule } from 'primeng/inplace';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { BadgeModule } from 'primeng/badge';
 import { OverlayBadgeModule } from 'primeng/overlaybadge';
+import { FileUploadModule } from 'primeng/fileupload';
 
 @NgModule({
   declarations: [],
@@ -56,7 +57,8 @@ import { OverlayBadgeModule } from 'primeng/overlaybadge';
     InplaceModule,
     FloatLabelModule,
     BadgeModule,
-    OverlayBadgeModule
+    OverlayBadgeModule,
+    FileUploadModule
   ],
   exports:[
     CommonModule,
@@ -85,7 +87,8 @@ import { OverlayBadgeModule } from 'primeng/overlaybadge';
     InplaceModule,
     FloatLabelModule,
     BadgeModule,
-    OverlayBadgeModule
+    OverlayBadgeModule,
+    FileUploadModule
   ]
 })
 export class PrimengModule { }

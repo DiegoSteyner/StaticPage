@@ -1,0 +1,159 @@
+<div class="row">
+    <div class="col-12" style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+        <p-button label="Voltar" routerLink="/primeiro" size="small" [severity]="'primary'" icon="pi pi-arrow-left" iconPos="left" [style]="{'position': 'absolute', 'marginTop':'-.1rem', 'marginLeft':'-25rem', 'height': '2rem', 'backgroundColor': '#106ebe'}"/>
+        <h5>AUDIOMETRIA TONAL</h5>
+        <hr style="width: 50rem;padding-top: 0;margin-top: 0;">
+    </div>
+    <div class="col-12" style="text-align: center;">
+        <p-fileupload mode="basic" name="demo[]" chooseIcon="pi pi-upload" url="https://www.primefaces.org/cdn/api/upload.php" accept="image/*" maxFileSize="1000000" [auto]="true" chooseLabel="Enviar Imagem" />
+        <!-- <p-image [style]="{'marginTop':'1rem'}" src="https://primefaces.org/cdn/primeng/images/galleria/galleria10.jpg" alt="Image" width="600" [preview]="true" > -->
+        <p-image [style]="{'marginTop':'1rem'}" src="https://staticpage.diego-steyner.workers.dev/baseprojectfront/browser/imagem.png" alt="Image" width="1200" [preview]="true" >
+            
+            <ng-template #indicator>
+                <i class="pi pi-eye"></i>
+            </ng-template>
+        </p-image>
+    </div>
+    <div class="col-12" style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+        <h5>Audiometria Vocal</h5>
+        <hr style="width: 50rem;padding-top: 0;margin-top: 0;">
+    </div>
+    <div class="co-12" style="border-bottom: solid 1px; padding-bottom: 1rem; padding-right: 5rem;">
+        <p-table 
+        [value]="dados"
+        [paginator]="false"
+        [rows]="3"
+        [tableStyle]="{'min-width': '80rem' }"
+        [rowsPerPageOptions]="[3, 10, 20]"  
+          stripedRows >
+          <ng-template #header>
+              <tr>
+                  <th style="color: white; background-color: #02659a; border-top-left-radius:  5px;"></th>
+                  <th style="color: white; background-color: transparent; border-top-left-radius:  5px; width: 5px;"></th>
+                  <th style="color: white; background-color: #02659a; text-align: center;" [colSpan]="3">LIMIAR DE RECONHECIMENTO DE FALA</th>
+                  <th style="color: white; background-color: transparent; border-top-left-radius:  5px; width: 5px;"></th>
+                  <th style="color: white; background-color: #02659a; text-align: center;" [colSpan]="6">ÍNDICE DE RECONHECIMENTO DE FALA - IRF</th>
+              </tr>
+              <tr>
+                  <th style="color: white; background-color: #02659a;">Orelha</th>
+                  <th style="color: white; background-color: transparent; border-top-left-radius:  5px; width: 5px;"></th>
+                  <th style="color: white; background-color: #02659a;">LRF em dB NA</th>
+                  <th style="color: white; background-color: #02659a;">LDF em dB NA</th>
+                  <th style="color: white; background-color: #02659a;">Masc. SN</th>
+                  <th style="color: white; background-color: transparent; border-top-left-radius:  5px; width: 5px;"></th>
+                  <th style="color: white; background-color: #02659a;">Intensidade dB</th>
+                  <th style="color: white; background-color: #02659a;">Masc. SN</th>
+                  <th style="color: white; background-color: #02659a;">Lista</th>
+                  <th style="color: white; background-color: #02659a;">Acertos em %</th>
+                  <th style="color: white; background-color: #02659a;">Lista</th>
+                  <th style="color: white; background-color: #02659a;">Acertos em %</th>
+              </tr>
+          </ng-template>
+          <ng-template #body let-laudo>
+              <tr *ngIf="true">
+                  <td><strong>{{laudo.nomeLaudo}}</strong></td>
+                  <td></td>
+                  <td><input class="form-control"  [(ngModel)]="laudo.limiarlrf" [ngModelOptions]=" {standalone: true}"></td>
+                  <td><input class="form-control"  [(ngModel)]="laudo.limiarldf" [ngModelOptions]=" {standalone: true}"></td>
+                  <td><input class="form-control"  [(ngModel)]="laudo.limiarsn" [ngModelOptions]=" {standalone: true}"></td>
+                  <td></td>
+                  <td><input class="form-control"  [(ngModel)]="laudo.recintensidade" [ngModelOptions]=" {standalone: true}"></td>
+                  <td><input class="form-control"  [(ngModel)]="laudo.recsn" [ngModelOptions]=" {standalone: true}"></td>
+                  <td>{{laudo.reclist1}}</td>
+                  <td><input class="form-control"  [(ngModel)]="laudo.recacertos1" [ngModelOptions]=" {standalone: true}"></td>
+                  <td>{{laudo.reclist2}}</td>
+                  <td><input class="form-control"  [(ngModel)]="laudo.recacertos2" [ngModelOptions]=" {standalone: true}"></td>
+              </tr>
+          </ng-template>
+      </p-table>
+    </div>
+    <div class="col-12">
+        <div style="display: flex; flex-direction: column;">
+            <label >Classificação da audiometria tonal convencional (250Hz à 8000Hz):</label>
+            <small >Grau: OMS (2019)</small>
+        </div>
+        <div style="padding-right: 4.5rem;">
+            <table class="table" style="margin-top: 1rem; padding-right: 5rem;">
+                <thead>
+                  <tr>
+                    <th scope="col">OD</th>
+                    <th scope="col">OE</th>
+                    <th scope="col">Grau da perda auditiva</th>
+                    <th scope="col">Média (0.5, 1, 2 e 4kHz)</th>
+                    <th scope="col">Desempenho auditivo esperado em ambiente silencioso</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                        <p-checkbox [(ngModel)]="audiometria[0].od" [binary]="true" [indeterminate]="true" />
+                    </th>
+                    <td>
+                        <p-checkbox [(ngModel)]="audiometria[0].oe" [binary]="true" [indeterminate]="true" />
+                    </td>
+                    <td rowspan="2">
+                        Normal
+                    </td>
+                    <td>-10 a 4.9 dB</td>
+                    <td>Excelente audição</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                        <p-checkbox [(ngModel)]="audiometria[1].od" [binary]="true" [indeterminate]="true" />
+                    </th>
+                    <td>
+                        <p-checkbox [(ngModel)]="audiometria[1].oe" [binary]="true" [indeterminate]="true" />
+                    </td>
+                    <td>
+                        5 a 19.9 dB
+                    </td>
+                    <td>Boa audição</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                        <p-checkbox [(ngModel)]="audiometria[2].od" [binary]="true" [indeterminate]="true" />
+                    </th>
+                    <td>
+                        <p-checkbox [(ngModel)]="audiometria[2].oe" [binary]="true" [indeterminate]="true" />
+                    </td>
+                    <td>
+                        Leve
+                    </td>
+                    <td>20.0 a 34,9 dB</td>
+                    <td>Não tem dificuldades para ouvir o que foi dito</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                        <p-checkbox [(ngModel)]="audiometria[3].od" [binary]="true" [indeterminate]="true" />
+                    </th>
+                    <td>
+                        <p-checkbox [(ngModel)]="audiometria[3].oe" [binary]="true" [indeterminate]="true" />
+                    </td>
+                    <td>
+                        Moderado
+                    </td>
+                    <td>35.0 a 49,9 dB</td>
+                    <td>Pode ter dificuldade em ouvir a voz em uma intensidade normal</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                        <p-checkbox [(ngModel)]="audiometria[4].od" [binary]="true" [indeterminate]="true" />
+                    </th>
+                    <td>
+                        <p-checkbox [(ngModel)]="audiometria[4].oe" [binary]="true" [indeterminate]="true" />
+                    </td>
+                    <td>
+                        Moderamente severo
+                    </td>
+                    <td>50.0 a 64,9dB</td>
+                    <td>Pode ouvir a voz em uma intensidade mais alta</td>
+                  </tr>
+                </tbody>
+              </table>
+              <small>Tipo: Silman e Silverman (1997)</small>
+        </div>
+    </div>
+    <div class="col-12" style="text-align: center;">
+        <p-button label="Gerar PDF" icon="pi pi-file-pdf" iconPos="left" />
+    </div>
+</div>

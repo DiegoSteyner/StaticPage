@@ -12,7 +12,7 @@ import { RouterLink } from '@angular/router';
 })
 export class PrimeiroComponent {
 
-  dados:any = []
+  dados:any = [];
     
   constructor(){
     this.dados = [

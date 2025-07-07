@@ -40,7 +40,7 @@
                 <!-- fim do menu -->
             </div>
 
-            <div *ngIf="false" class="col-2">
+            <div *ngIf="true" class="col-1">
                 <div class="" style="height: calc(-14.5rem + 100vh);">
                     <ul class="navbar__menu border rounded-pill shadow-3" style="margin-top: 7rem; margin-bottom: -7rem; list-style: none;margin-left: 0.7rem;width: 4rem;">
                         <li class="navbar__item">
@@ -50,7 +50,7 @@
                           <a [routerLink]='"/segundo"' class="navbar__link"><i class="bi bi-chat-left" style="font-size: 1.5rem; color: black;"></i><span>Messages</span></a>        
                         </li>
                         <li class="navbar__item">
-                          <a href="#" class="navbar__link"><i class="bi bi-people" style="font-size: 1.5rem; color: black;"></i><span>Customers</span></a>        
+                          <a [routerLink]='"/terceiro"' href="#" class="navbar__link"><i class="bi bi-people" style="font-size: 1.5rem; color: black;"></i><span>Customers</span></a>        
                         </li>
                         <li class="navbar__item">
                           <a href="#" class="navbar__link"><i class="bi bi-folder" style="font-size: 1.5rem; color: black;"></i><span>Projects</span></a>        
@@ -79,7 +79,7 @@
                 </div>
             </div>
             
-            <div class="col-12" style="min-height: 10rem !important;">
+            <div class="col-11" style="min-height: 10rem !important;">
               <router-outlet />
               <div *ngIf="false" id="page-container">
                 <div id="content-wrap">
