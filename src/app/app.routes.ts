@@ -4,6 +4,7 @@ import { SegundoComponent } from './componentes/segundo/segundo.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { AuthGuard } from './interceptors/auth-guard';
 import { TerceiroComponenteComponent } from './componentes/terceiro-componente/terceiro-componente.component';
+import { QuartoComponenteComponent } from './componentes/quarto-componente/quarto-componente.component';
 
 export const routes: Routes = [
     { 
@@ -26,5 +27,10 @@ export const routes: Routes = [
         path: 'terceiro',
         canActivate: [AuthGuard],
         component: TerceiroComponenteComponent,
+    },
+    {
+        path: 'quarto',
+        canActivate: [AuthGuard],
+        component: QuartoComponenteComponent,
     },
 ];
