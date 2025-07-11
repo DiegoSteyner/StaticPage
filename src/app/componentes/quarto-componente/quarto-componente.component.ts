@@ -163,6 +163,30 @@ export class QuartoComponenteComponent implements AfterViewInit
     } else {
       console.log('All images are not loaded!');
     }
+
+    // const canvas = document.getElementById('mycanvas') as HTMLCanvasElement;
+
+    // canvas.addEventListener('click', function(event: MouseEvent) {
+    //   const rect = canvas.getBoundingClientRect(); // Pega a posição do canvas na tela
+    //   const x = event.clientX - rect.left; // Posição X relativa ao canvas
+    //   const y = event.clientY - rect.top;  // Posição Y relativa ao canvas
+
+      
+
+    //   console.log(`Clique em: x=${x}, y=${y}`);
+    // });
+  }
+
+  onCanvasClick(event: MouseEvent) {
+    const canvas = this.canvas.nativeElement;
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    this.posicaox = parseInt((x-100).toString(), 10);
+    this.posicaoy = parseInt((y-100).toString(), 10);
+  
+    console.log(`Clique no canvas: x=${x}, y=${y}`);
   }
 
   desfazer()
